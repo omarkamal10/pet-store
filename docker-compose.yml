@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  db:
+    image: 'postgres:latest'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: petstore
+
+  server:
+    build: .
+    container_name: server
+    ports:
+      - '9000:9000'
+    volumes:
+      - /app/node_modules
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: petstore
+    depends_on:
+      - db
+    command: /bin/sh -c "ts-node src/server.ts"
