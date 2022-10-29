@@ -9,6 +9,14 @@ I implemented most of endpoints in the pet store swagger spec from scratch and a
 
 That's all you need to run the project.
 
+## Testing
+
+Code exists in tests folder in src
+
+1. Install node dependencies if you haven't already ➡ `npm install`
+2. Run instance of server ➡ `npm run dev`
+3. Run command ➡ `npm test`
+
 ## Documentation
 
 Postman collection in Documentation folder
