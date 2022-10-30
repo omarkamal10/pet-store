@@ -4,9 +4,10 @@ I implemented most of endpoints in the pet store swagger spec from scratch and a
 
 ## Setup and running the project
 
-1. Install node dependencies ➡ `npm install`
-2. If you have docker Run Docker Compose ➡ `docker-compose up`
-3. If no docker available just run ➡ `npm run dev`
+1. Clone the code from github or download it
+2. Install node dependencies ➡ `npm install`
+3. If you have docker Run Docker Compose ➡ `docker-compose up`
+4. If no docker available just run ➡ `npm run dev`
 
 That's all you need to run the project.
 
