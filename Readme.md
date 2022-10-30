@@ -53,7 +53,8 @@ Note: When logging in make sure to put token in Authorization Bearer Token
 5. Login with user3 and place token in Authorization Bearer token
 6. place a bid - POST ➡ http://localhost:9000/api/auction/1/bid with json body {"amount":60}. Note that if the amount is less than the highest bid, it will result in an error stating to place a higher bid.
 
-7. Login with user1 to check the bids on that particular pet - GET ➡ http://localhost:9000/api/auction/bid/pet/1 ➡ will return array of bids made with each bidder value as the userId
+7. Login with user1 and place token in Authorization Bearer token
+8. Check the bids on that particular pet - GET ➡ http://localhost:9000/api/auction/bid/pet/1 ➡ will return array of bids made with each bidder value as the userId
    [
    {
    "amount": 50,
@@ -63,4 +64,4 @@ Note: When logging in make sure to put token in Authorization Bearer Token
    "amount": 60,
    "bidder": 3
    ]
-8. You can test the other endpoint as per the postman collection with their input data.
+9. You can test the other endpoint as per the postman collection with their input data.
