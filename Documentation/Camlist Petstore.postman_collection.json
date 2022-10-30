@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "736b73e0-fef8-4edf-b1fe-b074f0adc0c8",
-		"name": "Swagger Petstore",
+		"name": "Camlist Petstore",
 		"description": "This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "18907322"
@@ -11,42 +11,18 @@
 			"name": "pet",
 			"item": [
 				{
-					"name": "Update an existing pet",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml, application/json"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "Pet object that needs to be added to the store"
-						},
-						"url": {
-							"raw": "https://petstore.swagger.io/v2/pet",
-							"protocol": "https",
-							"host": [
-								"petstore",
-								"swagger",
-								"io"
-							],
-							"path": [
-								"v2",
-								"pet"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Add a new pet to the store",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Authorization}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -60,7 +36,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": 0,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"a7aa\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+							"raw": "{\r\n  \"categoryId\": 1,\r\n  \"name\": \"ruby\",\r\n  \"photoUrls\": [\r\n    \"url1\",\r\n    \"url2\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -68,52 +44,14 @@
 							}
 						},
 						"url": {
-							"raw": "https://petstore.swagger.io/v2/pet",
-							"protocol": "https",
+							"raw": "{{base-URL}}/pet",
 							"host": [
-								"petstore",
-								"swagger",
-								"io"
+								"{{base-URL}}"
 							],
 							"path": [
-								"v2",
 								"pet"
 							]
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "Finds Pets by status",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml, application/json"
-							}
-						],
-						"url": {
-							"raw": "https://petstore.swagger.io/v2/pet/findByStatus?status={{status}}",
-							"protocol": "https",
-							"host": [
-								"petstore",
-								"swagger",
-								"io"
-							],
-							"path": [
-								"v2",
-								"pet",
-								"findByStatus"
-							],
-							"query": [
-								{
-									"key": "status",
-									"value": "{{status}}"
-								}
-							]
-						},
-						"description": "Multiple status values can be provided with comma separated strings"
 					},
 					"response": []
 				},
@@ -146,47 +84,6 @@
 						"description": "Returns a single pet"
 					},
 					"response": []
-				},
-				{
-					"name": "Deletes a pet",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml, application/json"
-							},
-							{
-								"key": "api_key",
-								"value": "{{api_key}}"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "https://petstore.swagger.io/v2/pet/:petId",
-							"protocol": "https",
-							"host": [
-								"petstore",
-								"swagger",
-								"io"
-							],
-							"path": [
-								"v2",
-								"pet",
-								":petId"
-							],
-							"variable": [
-								{
-									"key": "petId",
-									"value": "{{petId}}"
-								}
-							]
-						}
-					},
-					"response": []
 				}
 			],
 			"description": "Folder for pet"
@@ -206,7 +103,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n  \"username\": \"user4\",\r\n  \"firstName\": \"user4\",\r\n  \"lastName\": \"user4\",\r\n  \"email\": \"user4@user4.com\",\r\n  \"password\": \"1234\",\r\n  \"phone\": \"0101\",\r\n  \"userStatus\": 0\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -214,12 +111,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{base-URL}}/api/user",
+							"raw": "{{base-URL}}/user",
 							"host": [
 								"{{base-URL}}"
 							],
 							"path": [
-								"api",
 								"user"
 							]
 						},
@@ -239,18 +135,19 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "List of user object"
+							"raw": "[\r\n    {\r\n        \"username\": \"user4\",\r\n        \"firstName\": \"user4\",\r\n        \"lastName\": \"user4\",\r\n        \"email\": \"user4@user4.com\",\r\n        \"password\": \"1234\",\r\n        \"phone\": \"0101\",\r\n        \"userStatus\": 0\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
-							"raw": "https://petstore.swagger.io/v2/user/createWithList",
-							"protocol": "https",
+							"raw": "{{base-URL}}/user/createWithList",
 							"host": [
-								"petstore",
-								"swagger",
-								"io"
+								"{{base-URL}}"
 							],
 							"path": [
-								"v2",
 								"user",
 								"createWithList"
 							]
@@ -261,34 +158,41 @@
 				{
 					"name": "Logs user into the system",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Accept",
 								"value": "application/xml, application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"user2\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "https://petstore.swagger.io/v2/user/login?username={{username}}&password={{password}}",
-							"protocol": "https",
+							"raw": "{{base-URL}}/user/login",
 							"host": [
-								"petstore",
-								"swagger",
-								"io"
+								"{{base-URL}}"
 							],
 							"path": [
-								"v2",
 								"user",
 								"login"
 							],
 							"query": [
 								{
 									"key": "username",
-									"value": "{{username}}"
+									"value": "{{username}}",
+									"disabled": true
 								},
 								{
 									"key": "password",
-									"value": "{{password}}"
+									"value": "{{password}}",
+									"disabled": true
 								}
 							]
 						}
@@ -306,101 +210,21 @@
 							}
 						],
 						"url": {
-							"raw": "https://petstore.swagger.io/v2/user/:username",
-							"protocol": "https",
+							"raw": "{{base-URL}}/user/:username",
 							"host": [
-								"petstore",
-								"swagger",
-								"io"
+								"{{base-URL}}"
 							],
 							"path": [
-								"v2",
 								"user",
 								":username"
 							],
 							"variable": [
 								{
 									"key": "username",
-									"value": "{{username}}"
+									"value": "omar"
 								}
 							]
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "Updated user",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml, application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "Updated user object"
-						},
-						"url": {
-							"raw": "https://petstore.swagger.io/v2/user/:username",
-							"protocol": "https",
-							"host": [
-								"petstore",
-								"swagger",
-								"io"
-							],
-							"path": [
-								"v2",
-								"user",
-								":username"
-							],
-							"variable": [
-								{
-									"key": "username",
-									"value": "{{username}}"
-								}
-							]
-						},
-						"description": "This can only be done by the logged in user."
-					},
-					"response": []
-				},
-				{
-					"name": "Delete user",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml, application/json"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "https://petstore.swagger.io/v2/user/:username",
-							"protocol": "https",
-							"host": [
-								"petstore",
-								"swagger",
-								"io"
-							],
-							"path": [
-								"v2",
-								"user",
-								":username"
-							],
-							"variable": [
-								{
-									"key": "username",
-									"value": "{{username}}"
-								}
-							]
-						},
-						"description": "This can only be done by the logged in user."
 					},
 					"response": []
 				}
@@ -427,7 +251,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\":\"Used laptop by bill gates\"\r\n}",
+							"raw": "{\r\n    \"title\":\"My pet kitty for sale 2\",\r\n    \"petId\":2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -472,7 +296,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{Authorization}}",
+									"value": "{{Token}}",
 									"type": "string"
 								}
 							]
@@ -481,7 +305,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"amount\":45\r\n}",
+							"raw": "{\r\n    \"amount\":23\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

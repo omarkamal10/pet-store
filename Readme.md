@@ -5,7 +5,8 @@ I implemented most of endpoints in the pet store swagger spec from scratch and a
 ## Setup and running the project
 
 1. Install node dependencies ➡ `npm install`
-2. Run Docker Compose ➡ `docker-compose up`
+2. If you have docker Run Docker Compose ➡ `docker-compose up`
+3. If no docker available just run ➡ `npm run dev`
 
 That's all you need to run the project.
 
@@ -42,6 +43,8 @@ All of these endpoint require authentication so the user must login
 3. Pet owner to list all bids for specific pet - GET ➡ http://localhost:9000/api/auction/bid/pet/:petId ➡ Return all bids for that particular petId for that particular user
 
 ### Example scenario to test the challenge endpoints.
+
+Note: When logging in make sure to put token in Authorization Bearer Token
 
 1. As user1 is the owner of the auction and the seller/owner of that pet so only he can see all the bids made on that pet or in his other pets as well.
 2. Login with user2 and place a bid - POST ➡ http://localhost:9000/api/auction/1/bid with json body {"amount":50}
