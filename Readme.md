@@ -47,17 +47,20 @@ All of these endpoint require authentication so the user must login
 Note: When logging in make sure to put token in Authorization Bearer Token
 
 1. As user1 is the owner of the auction and the seller/owner of that pet so only he can see all the bids made on that pet or in his other pets as well.
-2. Login with user2 and place a bid - POST ➡ http://localhost:9000/api/auction/1/bid with json body {"amount":50}
-3. user2 cannot place another bid until another user places a bid.
-4. Login with user3 and place a bid - POST ➡ http://localhost:9000/api/auction/1/bid with json body {"amount":60}. Note that if the amount is less than the highest bid, it will result in an error stating to place a higher bid.
-5. Login with user1 to check the bids on that particular pet - GET ➡ http://localhost:9000/api/auction/bid/pet/1 ➡ will return array of bids made with each bidder value as the userId
+2. Login with user2 and place token in Authorization Bearer token
+3. place a bid - POST ➡ http://localhost:9000/api/auction/1/bid with json body {"amount":50}
+4. user2 cannot place another bid until another user places a bid.
+5. Login with user3 and place token in Authorization Bearer token
+6. place a bid - POST ➡ http://localhost:9000/api/auction/1/bid with json body {"amount":60}. Note that if the amount is less than the highest bid, it will result in an error stating to place a higher bid.
+
+7. Login with user1 to check the bids on that particular pet - GET ➡ http://localhost:9000/api/auction/bid/pet/1 ➡ will return array of bids made with each bidder value as the userId
    [
    {
-   "amount": 101,
+   "amount": 50,
    "bidder": 2
    },
    {
-   "amount": 103,
+   "amount": 60,
    "bidder": 3
    ]
-6. You can test the other endpoint as per the postman collection with their input data.
+8. You can test the other endpoint as per the postman collection with their input data.
