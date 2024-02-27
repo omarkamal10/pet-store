@@ -1,6 +1,6 @@
-# Pet store Challenge 1
+# Pet store Api
 
-I implemented most of endpoints in the pet store swagger spec from scratch and added the two main end points required in the challenge to showcase my code structure and organization.
+I implemented most of endpoints in the pet store swagger spec from scratch and added the two main end points my code structure and organization.
 
 ## Setup and running the project
 
